@@ -1,0 +1,77 @@
+.iv-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #222;
+  box-sizing: border-box;
+  padding: 10px;
+  z-index: 19900829;
+}
+.iv-container .iv-back {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 5px;
+  right: 15px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 10;
+}
+.iv-container .iv-back i {
+  color: #ffffff;
+  font-size: 20px !important;
+  line-height: 30px;
+}
+.iv-container .iv-header {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  top: 0;
+  left: 0;
+  text-align: center;
+  color: #ffffff;
+  line-height: 40px;
+}
+.iv-container .iv-header span {
+  color: #ffffff;
+}
+.iv-container .iv-swipe-left,
+.iv-container .iv-swipe-right {
+  position: absolute;
+  display: none;
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  top: 50%;
+  left: 10px;
+  margin-top: -20px;
+  text-align: center;
+  line-height: 40px;
+  transform: rotate(180deg);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  z-index: 10;
+}
+.iv-container .iv-swipe-left i,
+.iv-container .iv-swipe-right i {
+  font-size: 20px !important;
+}
+.iv-container .iv-swipe-right {
+  left: auto;
+  right: 10px;
+  transform: rotate(0deg);
+}
+.iv-container .iv-content {
+  position: absolute;
+  top: 40px;
+  bottom: 40px;
+  left: 10px;
+  right: 10px;
+  overflow: hidden;
+}
+.iv-container .iv-content .view-image {
+  display: block;
+  margin: 0 auto;
+}

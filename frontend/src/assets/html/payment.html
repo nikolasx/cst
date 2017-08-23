@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>支付</title>
+</head>
+<body style="background-color: #ccc;">
+
+<!--<form id="pay_form" action="https://gateway.test.95516.com/gateway/api/frontTransReq.do"
+      method="post">
+</form>-->
+<div id="content">aaa</div>
+
+<script>
+
+  window.addEventListener("message", function (e) {
+    var data = e.data;
+    document.querySelector("#content").innerHTML = data;
+    document.querySelector("#pay_form").submit();
+  })
+</script>
+
+
+</body>
+</html>
