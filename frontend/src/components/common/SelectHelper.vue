@@ -1,18 +1,16 @@
 <template>
-
-
   <div class="sh-container">
-    <div class="sh-content">
+    <div class="sh-content" @click="selectBrand($event)">
       <template v-for="(list,key) in listObj">
-        <div class="select-flag">{{key}}</div>
+        <div class="select-flag" :data-flag="key">{{key}}</div>
         <div>
-          <a class="select-item" v-for="item in list">{{item.enName}}</a>
+          <a class="select-item" :data-id="item.id" v-for="item in list">{{item.enName}}</a>
         </div>
       </template>
     </div>
-    <div class="sh-bar-container">
+    <div class="sh-bar-container" v-show="showNav" @click="navTo($event)">
       <template v-for="(list,key) in listObj">
-        <a class="nav-item">{{key}}</a>
+        <a class="nav-item" :data-value="key">{{key}}</a>
       </template>
     </div>
   </div>
@@ -85,12 +83,17 @@
 <script>
 
   import {each as _each} from 'underscore'
+  import {string} from '../../lib/util'
 
   export default {
     props: {
       list: {
         type: Array,
         default: []
+      },
+      searchKey: {
+        type: String,
+        default: ''
       }
     },
 
@@ -125,10 +128,47 @@
           }
         })
         return result
+      },
+
+      showNav() {
+        return this.searchKey == ''
       }
     },
 
-    methods: {}
+    methods: {
+      selectBrand(e) {
+        let target = e.target;
+        if (/select-item/.test(target.className)) {
+          let id = target.getAttribute("data-id")
+          this.$emit("onSelect", id)
+        }
+      },
+      navTo(e) {
+        let target = e.target
+        if (/nav-item/.test(target.className)) {
+          let value = target.getAttribute("data-value"),
+            flag = this.$el.querySelector(string.format(".select-flag[data-flag='{0}']", value));
+          this.$el.querySelector('.sh-content').scrollTop = flag.offsetTop
+        }
+      }
+    }
   }
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

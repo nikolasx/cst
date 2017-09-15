@@ -6,7 +6,7 @@
       <input placeholder="搜索" v-model.trim="searchKey"/>
     </div>
     <div class="qs-content">
-      <select-helper :list="selectList"></select-helper>
+      <select-helper :list="selectList" :searchKey="searchKey" v-on:onSelect="onSelect"></select-helper>
     </div>
   </div>
 
@@ -96,6 +96,13 @@
           }
         })
         return result;
+      }
+
+    },
+
+    methods: {
+      onSelect(id) {
+        this.$emit("onSelect", id)
       }
     }
   }

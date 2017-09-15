@@ -268,7 +268,7 @@
 
       //去付款
       goPay(item){
-
+         console.log(item)
         this.$store.dispatch("getDataByOrderId", item.orderId).then(() => {
           this.$router.push('/fillorder');
         })

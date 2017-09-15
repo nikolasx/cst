@@ -64,7 +64,7 @@
 <style lang="less" scoped>
 
   .banner-container {
-    height: 8rem;
+    height: auto;
     background-color: #ffffff;
     border-bottom: 1px solid #F3F3F3;
   }

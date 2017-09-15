@@ -9,7 +9,7 @@
       <h1 class="title">选择品牌</h1>
     </header>
     <div class="content">
-      <quick-select :list="brandList"></quick-select>
+      <quick-select :list="brandList" v-on:onSelect="onSelect"></quick-select>
     </div>
   </div>
 </template>
@@ -35,7 +35,7 @@
       }
     },
 
-    created(){
+    created() {
       this.getBrandList()
     },
 
@@ -53,9 +53,16 @@
             this.brandList = list
           }
         })
+      },
+
+      onSelect(id) {
+        let tmpObj = {
+          brandId: id
+        }
+        this.$store.dispatch('updateDemand', tmpObj).then(() => {
+          this.$router.go(-1)
+        })
       }
-
-
     }
   }
 </script>
